@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Courses & Batches — Zenith Academy | Kerala State & CBSE Tuition</title>
+  <meta name="description" content="Explore our complete course catalogue for Kerala State Syllabus and CBSE Classes 8-12. Physics, Chemistry, Maths, Biology, Commerce, and Accountancy batches." />
+  
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <!-- Sticky Header -->
+  <!-- Floating Glass Pill Header (Exact Reference Match) -->
+  <div class="floating-header-wrapper">
+    <header class="floating-pill-nav" id="pillNav">
+      <a href="index.html" class="nav-brand" aria-label="Ananthu's PCM Home">
+        <img src="logo.svg" alt="Ananthu's PCM Logo" class="nav-brand-logo" />
+      </a>
+
+      <nav class="nav-links-cluster" aria-label="Main Navigation">
+        <a href="index.html#about" class="nav-link-item">About</a>
+        <a href="index.html#solutions" class="nav-link-item">Methodology</a>
+        <a href="courses.html" class="nav-link-item">Programs</a>
+        <a href="results.html" class="nav-link-item">Results</a>
+        <a href="index.html#modes" class="nav-link-item">Batches</a>
+        <a href="contact.html" class="nav-link-item">Contact</a>
+      </nav>
+
+      <div class="nav-right-actions">
+        <button class="btn-clean-dark" data-open-demo-modal>
+          Book Demo &rarr;
+        </button>
+        <button class="nav-mobile-toggle" aria-label="Open mobile menu">
+          &#9776;
+        </button>
+      </div>
+    </header>
+  </div>
+
+  <!-- Mobile Drawer -->
+  <div class="drawer-backdrop"></div>
+  <aside class="mobile-drawer">
+    <div class="drawer-header">
+      <div class="brand-logo">
+        <img src="logo.svg" alt="Ananthu's PCM" style="height: 38px; width: auto;" />
+        <span>Ananthu's PCM</span>
+      </div>
+      <button class="drawer-close-btn">&times;</button>
+    </div>
+    <nav class="mobile-nav-list">
+      <a href="index.html" class="mobile-nav-link">Home <span>&rarr;</span></a>
+      <a href="courses.html" class="mobile-nav-link active">Courses <span>&rarr;</span></a>
+      <a href="online-classes.html" class="mobile-nav-link">Online Classes <span>&rarr;</span></a>
+      <a href="results.html" class="mobile-nav-link">Results <span>&rarr;</span></a>
+      <a href="gallery.html" class="mobile-nav-link">Gallery <span>&rarr;</span></a>
+      <a href="videos.html" class="mobile-nav-link">Videos <span>&rarr;</span></a>
+      <a href="about.html" class="mobile-nav-link">About <span>&rarr;</span></a>
+      <a href="contact.html" class="mobile-nav-link">Contact <span>&rarr;</span></a>
+    </nav>
+    <div style="margin-top: auto;">
+      <button class="btn btn-primary btn-block" data-open-demo-modal>Book a Free Demo</button>
+    </div>
+  </aside>
+
+  <!-- Page Banner -->
+  <section class="section-tight" style="background: linear-gradient(180deg, #171816, var(--color-canvas)); border-bottom: 1px solid var(--color-border-dark);">
+    <div class="container text-center">
+      <div class="eyebrow">Academic Catalogue 2025–2026</div>
+      <h1 class="text-h1" style="margin-bottom: 16px;">Search & Discover Courses</h1>
+      <p class="section-subtitle" style="max-width: 650px; margin-inline: auto;">
+        Find the exact board, class, stream, and subject combination tailored to help your child achieve top grades.
+      </p>
+
+      <!-- Course Search Input Bar -->
+      <div style="max-width: 580px; margin: 32px auto 0; position: relative;">
+        <input 
+          type="text" 
+          id="courseSearchInput" 
+          class="form-control" 
+          placeholder="🔍 Search by subject (e.g. Physics, Accountancy, Maths) or course..." 
+          style="padding: 14px 20px; font-size: 1.05rem; border-radius: var(--radius-pill); background: #FFFFFF; color: #121310; box-shadow: 0 8px 24px rgba(0,0,0,0.3);"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Catalogue Content -->
+  <main class="section">
+    <div class="container">
+      
+      <!-- Filter Bar Controls -->
+      <div class="board-class-tabs" style="margin-bottom: 24px;">
+        <div class="board-switch">
+          <button class="board-tab-btn active" data-board-filter="all">All Boards</button>
+          <button class="board-tab-btn" data-board-filter="kerala">Kerala State Syllabus</button>
+          <button class="board-tab-btn" data-board-filter="cbse">CBSE Curriculum</button>
+        </div>
+
+        <div class="class-filters-row">
+          <button class="class-filter-pill active" data-class-filter="all">All Classes</button>
+          <button class="class-filter-pill" data-class-filter="8-10">Classes 8–10 (SSLC/CBSE)</button>
+          <button class="class-filter-pill" data-class-filter="11">Plus One / Class 11</button>
+          <button class="class-filter-pill" data-class-filter="12">Plus Two / Class 12</button>
+        </div>
+      </div>
+
+      <!-- Result Counter -->
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 28px; padding-bottom: 12px; border-bottom: 1px solid var(--color-border-dark);">
+        <span id="courseResultCount" style="color: var(--color-text-muted-dark); font-size: 0.92rem; font-weight: 600;">Showing courses...</span>
+        <span style="font-size: 0.85rem; color: var(--color-brand-primary);">Offline & Online Batches Available</span>
+      </div>
+
+      <!-- Dynamic Course Grid Container -->
+      <div class="courses-grid" id="coursesContainer">
+        <!-- Rendered by js/courses.js -->
+      </div>
+
+      <!-- Assistance Banner -->
+      <div style="margin-top: 64px; background: var(--color-surface-dark); border: 1px solid var(--color-border-dark); border-radius: var(--radius-lg); padding: 32px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px;">
+        <div>
+          <h3 style="font-size: 1.3rem; margin-bottom: 6px;">Need custom subject combinations?</h3>
+          <p style="color: var(--color-text-muted-dark); font-size: 0.95rem;">Talk to our academic counselor to customize single-subject or multi-subject batches.</p>
+        </div>
+        <div style="display: flex; gap: 12px;">
+          <a href="tel:+919847012345" class="btn btn-secondary">Call Counselor</a>
+          <button class="btn btn-primary" data-open-demo-modal>Book Free Demo</button>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>&copy; 2025–2026 Zenith Academy. All rights reserved.</div>
+        <div style="display: flex; gap: 20px;">
+          <a href="index.html">Home</a>
+          <a href="online-classes.html">Online Tuition</a>
+          <a href="contact.html">Admissions Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Sticky Mobile Action Bar -->
+  <div class="mobile-bottom-bar">
+    <div class="mobile-bottom-actions">
+      <a href="tel:+919847012345" class="btn btn-secondary btn-sm" style="background: #242521;">📞 Call Academy</a>
+      <a href="https://wa.me/919847012345?text=Hello%20Zenith%20Academy,%20I%20am%20enquiring%20about%20course%20admissions." target="_blank" class="btn btn-whatsapp btn-sm">💬 WhatsApp</a>
+    </div>
+  </div>
+
+  <!-- Global Demo Modal -->
+  <div class="site-modal" id="demoModal" role="dialog" aria-modal="true">
+    <div class="modal-dialog">
+      <button class="modal-close-btn" data-close-modal aria-label="Close modal">&times;</button>
+      <h3 style="font-size: 1.5rem; margin-bottom: 6px; color: #121310;">Book a Free Demo Class</h3>
+      <p style="color: #666; font-size: 0.92rem; margin-bottom: 20px;">2-day trial without fee commitment.</p>
+      <form data-enquiry-form>
+        <div class="form-group">
+          <label class="form-label">Student Name <span class="required-star">*</span></label>
+          <input type="text" name="studentName" class="form-control" placeholder="Rahul Nair" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">WhatsApp / Mobile Number <span class="required-star">*</span></label>
+          <input type="tel" name="phoneNumber" class="form-control" placeholder="10-digit number" required />
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label">Board <span class="required-star">*</span></label>
+            <select name="board" class="form-control" required>
+              <option value="">Select Board</option>
+              <option value="Kerala State">Kerala State</option>
+              <option value="CBSE">CBSE</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Class <span class="required-star">*</span></label>
+            <select name="classLevel" class="form-control" required>
+              <option value="">Select Class</option>
+              <option value="Class 8">Class 8</option>
+              <option value="Class 9">Class 9</option>
+              <option value="Class 10">Class 10</option>
+              <option value="Plus One (11)">Plus One (11)</option>
+              <option value="Plus Two (12)">Plus Two (12)</option>
+            </select>
+          </div>
+        </div>
+        <label class="form-checkbox-label">
+          <input type="checkbox" name="consent" checked required />
+          <span>I agree to receive batch timing updates.</span>
+        </label>
+        <button type="submit" class="btn btn-primary btn-block" style="margin-top: 20px;">Confirm Registration</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/courses.js"></script>
+  <script src="js/forms.js"></script>
+</body>
+</html>

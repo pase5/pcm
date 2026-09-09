@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact & Admissions — Zenith Academy | Kochi Campus & Online Batches</title>
+  <meta name="description" content="Get in touch with Zenith Academy admissions desk. Book your 2-day free demo class, visit our Kochi campus on MG Road, or message us on WhatsApp." />
+  
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/components.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+
+  <!-- Sticky Header -->
+  <!-- Floating Glass Pill Header (Exact Reference Match) -->
+  <div class="floating-header-wrapper">
+    <header class="floating-pill-nav" id="pillNav">
+      <a href="index.html" class="nav-brand" aria-label="Ananthu's PCM Home">
+        <img src="logo.svg" alt="Ananthu's PCM Logo" class="nav-brand-logo" />
+      </a>
+
+      <nav class="nav-links-cluster" aria-label="Main Navigation">
+        <a href="index.html#about" class="nav-link-item">About</a>
+        <a href="index.html#solutions" class="nav-link-item">Methodology</a>
+        <a href="courses.html" class="nav-link-item">Programs</a>
+        <a href="results.html" class="nav-link-item">Results</a>
+        <a href="index.html#modes" class="nav-link-item">Batches</a>
+        <a href="contact.html" class="nav-link-item">Contact</a>
+      </nav>
+
+      <div class="nav-right-actions">
+        <button class="btn-clean-dark" data-open-demo-modal>
+          Book Demo &rarr;
+        </button>
+        <button class="nav-mobile-toggle" aria-label="Open mobile menu">
+          &#9776;
+        </button>
+      </div>
+    </header>
+  </div>
+
+  <!-- Mobile Drawer -->
+  <div class="drawer-backdrop"></div>
+  <aside class="mobile-drawer">
+    <div class="drawer-header">
+      <div class="brand-logo">
+        <img src="logo.svg" alt="Ananthu's PCM" style="height: 38px; width: auto;" />
+        <span>Ananthu's PCM</span>
+      </div>
+      <button class="drawer-close-btn">&times;</button>
+    </div>
+    <nav class="mobile-nav-list">
+      <a href="index.html" class="mobile-nav-link">Home <span>&rarr;</span></a>
+      <a href="courses.html" class="mobile-nav-link">Courses <span>&rarr;</span></a>
+      <a href="online-classes.html" class="mobile-nav-link">Online Classes <span>&rarr;</span></a>
+      <a href="results.html" class="mobile-nav-link">Results <span>&rarr;</span></a>
+      <a href="gallery.html" class="mobile-nav-link">Gallery <span>&rarr;</span></a>
+      <a href="videos.html" class="mobile-nav-link">Videos <span>&rarr;</span></a>
+      <a href="about.html" class="mobile-nav-link">About <span>&rarr;</span></a>
+      <a href="contact.html" class="mobile-nav-link active">Contact <span>&rarr;</span></a>
+    </nav>
+    <div style="margin-top: auto;">
+      <button class="btn btn-primary btn-block" data-open-demo-modal>Book a Free Demo</button>
+    </div>
+  </aside>
+
+  <!-- Page Banner -->
+  <section class="section-tight" style="background: linear-gradient(180deg, #171816, var(--color-canvas)); border-bottom: 1px solid var(--color-border-dark);">
+    <div class="container text-center">
+      <div class="eyebrow">Admissions & Enquiries</div>
+      <h1 class="text-h1" style="margin-bottom: 16px;">Speak with Our Academic Counselors</h1>
+      <p class="section-subtitle" style="max-width: 650px; margin-inline: auto;">
+        Have questions about board syllabus changes, batch timings, or demo classes? We are here to guide you.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact Grid & Form -->
+  <main class="section">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: clamp(32px, 5vw, 64px); align-items: flex-start;">
+        
+        <!-- Detailed Enquiry Form -->
+        <div class="form-card" style="padding: clamp(28px, 4vw, 44px);">
+          <div style="margin-bottom: 24px;">
+            <div class="eyebrow eyebrow-light" style="margin-bottom: 10px;">Free Demo Pass</div>
+            <h2 style="font-size: 1.8rem; color: #121310; margin-bottom: 6px;">Register for Free Trial Classes</h2>
+            <p style="color: #666; font-size: 0.95rem;">Experience 2 days of real classes with our senior faculty before deciding.</p>
+          </div>
+
+          <form data-enquiry-form>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Student Full Name <span class="required-star">*</span></label>
+                <input type="text" name="studentName" class="form-control" placeholder="Rahul Nair" required />
+                <div class="invalid-feedback">Student name is required.</div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Parent / Guardian Name</label>
+                <input type="text" name="parentName" class="form-control" placeholder="Suresh Nair" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">WhatsApp / Phone Number <span class="required-star">*</span></label>
+                <input type="tel" name="phoneNumber" class="form-control" placeholder="9847012345" required />
+                <div class="invalid-feedback">Valid 10-digit number is required.</div>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Email Address (Optional)</label>
+                <input type="email" name="email" class="form-control" placeholder="rahul@example.com" />
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Board <span class="required-star">*</span></label>
+                <select name="board" class="form-control" required>
+                  <option value="">Select Board</option>
+                  <option value="Kerala State Syllabus">Kerala State Syllabus</option>
+                  <option value="CBSE Board">CBSE Board</option>
+                </select>
+                <div class="invalid-feedback">Please select the syllabus board.</div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Current Class <span class="required-star">*</span></label>
+                <select name="classLevel" class="form-control" required>
+                  <option value="">Select Class</option>
+                  <option value="Class 8">Class 8</option>
+                  <option value="Class 9">Class 9</option>
+                  <option value="Class 10 (SSLC/CBSE)">Class 10</option>
+                  <option value="Plus One (Class 11)">Plus One (11)</option>
+                  <option value="Plus Two (Class 12)">Plus Two (12)</option>
+                </select>
+                <div class="invalid-feedback">Please select the student's class.</div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">Stream (For Plus One / Two)</label>
+                <select name="stream" class="form-control">
+                  <option value="General / Not Applicable">General / High School</option>
+                  <option value="Science (PCMB / PCMC)">Science Stream</option>
+                  <option value="Commerce (Accounts / Econ)">Commerce Stream</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Preferred Learning Mode <span class="required-star">*</span></label>
+                <select name="mode" class="form-control" required>
+                  <option value="Offline Classroom (Kochi)">Offline Classroom (Kochi Campus)</option>
+                  <option value="Live Online Tuition">Live Online Tuition</option>
+                  <option value="Hybrid (Online + Weekend Labs)">Hybrid</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Specific Subject Doubts / Questions</label>
+              <textarea name="message" class="form-control" rows="3" placeholder="Tell us if the student needs specific help in Physics, Maths, or board model exams..."></textarea>
+            </div>
+
+            <label class="form-checkbox-label">
+              <input type="checkbox" name="consent" checked required />
+              <span>I agree to receive the demo batch confirmation via WhatsApp & Phone call.</span>
+            </label>
+
+            <button type="submit" class="btn btn-primary btn-block btn-lg" style="margin-top: 24px;">
+              Submit Demo Enquiry &rarr;
+            </button>
+          </form>
+        </div>
+
+        <!-- Contact Information & Map Cards -->
+        <div style="display: flex; flex-direction: column; gap: 24px;">
+          
+          <div style="background: var(--color-surface-dark); border: 1px solid var(--color-border-dark); border-radius: var(--radius-lg); padding: 32px;">
+            <h3 style="font-size: 1.3rem; margin-bottom: 20px; color: var(--color-text-on-dark);">Campus Direct Lines</h3>
+            
+            <div class="footer-contact-item" style="margin-bottom: 20px;">
+              <span class="footer-contact-icon">📍</span>
+              <div>
+                <strong style="color: #FFF; display: block; margin-bottom: 2px;">Campus Address</strong>
+                <span>Zenith Towers, MG Road, Near Ravipuram Metro Pillar 712, Kochi, Kerala 682016</span>
+              </div>
+            </div>
+
+            <div class="footer-contact-item" style="margin-bottom: 20px;">
+              <span class="footer-contact-icon">📞</span>
+              <div>
+                <strong style="color: #FFF; display: block; margin-bottom: 2px;">Phone Admissions</strong>
+                <a href="tel:+919847012345" style="color: var(--color-brand-primary); font-weight: 600;">+91 98470 12345</a>
+                <div style="font-size: 0.82rem; color: #777;">(Available 8:00 AM – 8:00 PM)</div>
+              </div>
+            </div>
+
+            <div class="footer-contact-item" style="margin-bottom: 20px;">
+              <span class="footer-contact-icon">💬</span>
+              <div>
+                <strong style="color: #FFF; display: block; margin-bottom: 2px;">WhatsApp Admissions Desk</strong>
+                <a href="https://wa.me/919847012345?text=Hello%20Zenith%20Academy,%20I%20am%20enquiring%20about%20admissions." target="_blank" style="color: #25D366; font-weight: 600;">+91 98470 12345 (Click to Chat)</a>
+              </div>
+            </div>
+
+            <div class="footer-contact-item">
+              <span class="footer-contact-icon">✉️</span>
+              <div>
+                <strong style="color: #FFF; display: block; margin-bottom: 2px;">Email Desk</strong>
+                <a href="mailto:admissions@zenithacademy.edu.in" style="color: var(--color-text-muted-dark);">admissions@zenithacademy.edu.in</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Location Map Facade -->
+          <div style="background: var(--color-surface-dark); border: 1px solid var(--color-border-dark); border-radius: var(--radius-lg); overflow: hidden;">
+            <div style="padding: 20px; border-bottom: 1px solid var(--color-border-dark);">
+              <h4 style="font-size: 1.1rem; color: #FFF;">Find Us on MG Road, Kochi</h4>
+              <p style="font-size: 0.85rem; color: var(--color-text-muted-dark);">2 minutes walk from Ravipuram Metro Station.</p>
+            </div>
+            
+            <div style="position: relative; width: 100%; aspect-ratio: 16/9; background: #222; display: flex; align-items: center; justify-content: center;">
+              <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=600&auto=format&fit=crop&q=80" alt="Map Location" style="width: 100%; height: 100%; object-fit: cover; filter: brightness(0.6);" />
+              <a href="https://maps.google.com/?q=MG+Road+Kochi" target="_blank" class="btn btn-primary btn-sm" style="position: absolute;">
+                Open in Google Maps ↗
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Global Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-bottom">
+        <div>&copy; 2025–2026 Zenith Academy. All rights reserved.</div>
+        <div style="display: flex; gap: 20px;">
+          <a href="index.html">Home</a>
+          <a href="courses.html">Courses</a>
+          <a href="about.html">About</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Sticky Mobile Bar -->
+  <div class="mobile-bottom-bar">
+    <div class="mobile-bottom-actions">
+      <a href="tel:+919847012345" class="btn btn-secondary btn-sm" style="background: #242521;">📞 Call Academy</a>
+      <a href="https://wa.me/919847012345?text=Hello%20Zenith%20Academy,%20I%20am%20contacting%20you%20from%20the%20website." target="_blank" class="btn btn-whatsapp btn-sm">💬 WhatsApp</a>
+    </div>
+  </div>
+
+  <script src="js/data.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/forms.js"></script>
+</body>
+</html>
