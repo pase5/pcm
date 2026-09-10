@@ -337,3 +337,95 @@ h1, h2, h3, h4, h5, h6 {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(37, 211, 102, 0.35);
 }
+
+/* ==========================================================================
+   Animations & Scroll Effects
+   ========================================================================== */
+
+.reveal-up {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-fade {
+  opacity: 0;
+  transition: opacity 0.8s ease-out;
+  will-change: opacity;
+}
+
+.reveal-up.is-revealed,
+.reveal-fade.is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+
+/* Parallax Transitions */
+.parallax-stack-wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+.parallax-section-sticky {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  z-index: 0;
+  overflow: hidden;
+}
+
+/* Base style for standard scrolling sections to sit above sticky ones */
+.section-relative {
+  position: relative;
+  z-index: 2;
+  background-color: var(--color-canvas); /* Ensures it blocks out sticky layer */
+}
+
+/* Ambient Background Effects */
+.bg-ambient-glow {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.bg-ambient-glow::before {
+  content: '';
+  position: absolute;
+  top: -20%;
+  left: -10%;
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle, var(--color-brand-orange-subtle) 0%, rgba(255,255,255,0) 70%);
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: -1;
+  animation: float-glow 15s infinite alternate ease-in-out;
+  pointer-events: none;
+}
+
+.bg-ambient-glow::after {
+  content: '';
+  position: absolute;
+  bottom: -20%;
+  right: -10%;
+  width: 60vw;
+  height: 60vw;
+  background: radial-gradient(circle, rgba(204, 208, 254, 0.4) 0%, rgba(255,255,255,0) 70%);
+  border-radius: 50%;
+  filter: blur(100px);
+  z-index: -1;
+  animation: float-glow 20s infinite alternate-reverse ease-in-out;
+  pointer-events: none;
+}
+
+@keyframes float-glow {
+  0% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(5%, 10%) scale(1.1); }
+  100% { transform: translate(-5%, -5%) scale(0.95); }
+}

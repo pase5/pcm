@@ -312,6 +312,49 @@ function initBoardSelector() {
   });
 }
 
+/* --------------------------------------------------------------------------
+   9. Scroll Reveal Animations
+   -------------------------------------------------------------------------- */
+function initScrollAnimations() {
+  const revealElements = document.querySelectorAll('.reveal-up, .reveal-fade');
+  if (!revealElements.length) return;
+
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px 0px -10% 0px',
+    threshold: 0.1
+  };
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-revealed');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  revealElements.forEach(el => observer.observe(el));
+}
+
+/* --------------------------------------------------------------------------
+   10. Parallax Effects
+   -------------------------------------------------------------------------- */
+function initParallaxEffects() {
+  const parallaxLayers = document.querySelectorAll('.parallax-layer');
+  if (!parallaxLayers.length) return;
+
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    parallaxLayers.forEach(layer => {
+      const speed = layer.getAttribute('data-speed') || 0.5;
+      layer.style.transform = `translateY(${scrollY * speed}px)`;
+    });
+  }, { passive: true });
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initBoardSelector();
+  initScrollAnimations();
+  initParallaxEffects();
 });
