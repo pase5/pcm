@@ -1,18 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ananthu's PCM — Kerala State & CBSE Tuition Centre | Kochi</title>
-  <meta name="description" content="Ananthu's PCM: Premier tuition centre for Kerala State Syllabus and CBSE Classes 8-12. Concept-first teaching in Physics, Chemistry & Maths, individual attention, and verified board exam results in Kochi." />
-  <meta name="keywords" content="Kerala State Tuition, CBSE Tuition Kochi, Plus Two Science, Plus One Commerce, SSLC Tuition, Online Tuition Kerala" />
-  
+  <meta name="description"
+    content="Ananthu's PCM: Premier tuition centre for Kerala State Syllabus and CBSE Classes 8-12. Concept-first teaching in Physics, Chemistry & Maths, individual attention, and verified board exam results in Kochi." />
+  <meta name="keywords"
+    content="Kerala State Tuition, CBSE Tuition Kochi, Plus Two Science, Plus One Commerce, SSLC Tuition, Online Tuition Kerala" />
+
   <!-- CSS Stylesheets -->
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="css/components.css" />
   <link rel="stylesheet" href="css/responsive.css" />
 </head>
+
 <body>
+
+  <!-- Preloader -->
+  <div id="preloader"
+    style="position: fixed; inset: 0; background-color: #FCFCFC; z-index: 9999; display: flex; align-items: center; justify-content: center; transition: opacity 0.6s ease-in-out, visibility 0.6s;">
+    <div class="loader-content"
+      style="display: flex; flex-direction: column; align-items: center; gap: 12px; width: 200px;">
+      <div style="font-family: 'Lexend', sans-serif; font-size: 3rem; font-weight: 700; color: #171719;">A</div>
+      <div style="width: 100%; height: 2px; background: rgba(0,0,0,0.1); border-radius: 2px; overflow: hidden;">
+        <div id="loader-progress-bar" style="width: 0%; height: 100%; background: #171719; transition: width 0.2s;">
+        </div>
+      </div>
+      <div id="loader-progress"
+        style="font-family: 'Lexend', sans-serif; font-size: 0.9rem; font-weight: 500; color: #737789; letter-spacing: 1px;">
+        0%</div>
+    </div>
+  </div>
+
+  <!-- Interactive Background Canvas moved to hero-illus -->
 
   <!-- Floating Glass Pill Header (Exact Reference Match) -->
   <div class="floating-header-wrapper">
@@ -23,16 +45,16 @@
 
       <nav class="nav-links-cluster" aria-label="Main Navigation">
         <a href="#about" class="nav-link-item">About</a>
-        <a href="#solutions" class="nav-link-item">Methodology</a>
-        <a href="courses.html" class="nav-link-item">Programs</a>
-        <a href="#results" class="nav-link-item">Results</a>
-        <a href="#modes" class="nav-link-item">Batches</a>
+        <a href="courses.html" class="nav-link-item">Courses</a>
+        <a href="#modes" class="nav-link-item">Classes</a>
+        <a href="results.html" class="nav-link-item">Results</a>
+        <a href="gallery.html" class="nav-link-item">Gallery</a>
         <a href="contact.html" class="nav-link-item">Contact</a>
       </nav>
 
       <div class="nav-right-actions">
         <button class="btn-clean-dark" data-open-demo-modal>
-          Book Demo &rarr;
+          Book Free Demo &rarr;
         </button>
         <button class="nav-mobile-toggle" aria-label="Open mobile menu">
           &#9776;
@@ -66,7 +88,8 @@
       <button class="btn-pill-orange" style="width: 100%; justify-content: center;" data-open-demo-modal>
         Book Free Demo &rarr;
       </button>
-      <a href="https://wa.me/919847012345?text=Hello%20Ananthu's%20PCM,%20I%20am%20enquiring%20about%20admissions." target="_blank" class="btn-pill-whatsapp" style="justify-content: center;">
+      <a href="https://wa.me/919847012345?text=Hello%20Ananthu's%20PCM,%20I%20am%20enquiring%20about%20admissions."
+        target="_blank" class="btn-pill-whatsapp" style="justify-content: center;">
         WhatsApp Enquiries
       </a>
     </div>
@@ -77,111 +100,44 @@
 
     <!-- SECTION 1: CLEAN MINIMALIST BENTO HERO (Exact Reference Match) -->
     <div class="parallax-stack-wrapper">
-    <section class="clean-hero-backdrop-wrapper parallax-section-sticky">
-      <div class="clean-hero-tablet-card">
-        
+      <section class="clean-hero-backdrop-wrapper parallax-section-sticky">
+        <div class="clean-hero-tablet-card hero-container">
 
-
-        <!-- 2-Column Hero Content Grid -->
-        <div class="clean-hero-content-grid">
-          
-          <!-- Left Column: Clean Typography & CTA -->
-          <div class="clean-hero-text-col">
-            <h1 class="clean-hero-title reveal-up">
-              Master Science<br />
-              without any<br />
-              fear
-            </h1>
-            <p class="clean-hero-desc">
-              Get quality online & offline individual lessons with us. We use modern concept-first techniques and personalized doubt clinics which will make you score top grades in Physics, Chemistry & Maths.
-            </p>
-            <div class="clean-hero-cta-group">
-              <button class="btn-clean-dark btn-lg" data-open-demo-modal>
-                Try for free
-              </button>
-            </div>
-            <div class="clean-hero-trust">
-              <span>⭐ <strong>4.9/5 Rating</strong> from 1,200+ Kerala Parents • 99.4% Pass Rate</span>
-            </div>
-          </div>
-
-          <!-- Right Column: Bento Grid Composition -->
-          <div class="clean-bento-stage">
-            
-            <!-- Top Bento Row: Student Illustration + Chat Card -->
-            <div class="bento-top-row">
-              <div class="bento-illustration-wrap">
-                <img 
-                  src="student-study.png" 
-                  alt="Student learning with laptop" 
-                  class="bento-student-img"
-                />
+          <!-- 2-Column Hero Content Grid -->
+          <div class="clean-hero-content-grid">
+            <!-- Left Column: Clean Typography & CTA -->
+            <div class="clean-hero-text-col">
+              <h1 class="clean-hero-title reveal-up" style="font-family: 'Lexend', sans-serif;">
+                Learn with <span class="highlight-accent" style="position: relative; display: inline-block;">clarity<span class="highlight-line"></span></span>.<br />
+                Perform with<br />
+                confidence.
+              </h1>
+              <p class="clean-hero-desc">
+                Personalised tuition for Classes 8–12 following Kerala State and CBSE. Build strong concepts and clear your doubts.
+              </p>
+              <div class="clean-hero-cta-group">
+                <button class="btn-clean-dark btn-lg" data-open-demo-modal style="height: 52px; border-radius: 12px; padding: 0 24px;">
+                  Book a Free Demo &rarr;
+                </button>
+                <a href="videos.html" class="btn-clean-outline btn-lg" style="height: 52px; border-radius: 12px; padding: 0 24px; text-decoration: none; display: inline-flex; align-items: center; gap: 8px;">
+                  Watch a Sample Lesson <span>▶</span>
+                </a>
               </div>
-
-              <div class="bento-chat-card">
-                <div class="chat-bubble bubble-lime">
-                  Hey! I want to score Full A+ in Physics!
-                </div>
-                <div class="chat-bubble bubble-white">
-                  Let's do it! 🚀
-                </div>
+              <div class="hero-labels">
+                <span class="hero-label">Classes 8–12</span>
+                <span class="hero-label">CBSE + Kerala State</span>
+                <span class="hero-label">Online + Offline</span>
               </div>
             </div>
 
-            <!-- Bottom Bento Row: 2 Left Metric Cards + 1 Right Community Card -->
-            <div class="bento-bottom-row">
+            <!-- Right Column: Character + Lesson -->
+            <div class="hero-experience-col">
               
-              <!-- Left Column: 50 Mins + 24/7 Mentorship -->
-              <div class="bento-stats-column">
-                
-                <div class="bento-card-lime">
-                  <div class="card-lime-number">50</div>
-                  <div class="card-lime-label">
-                    minutes lesson<br />duration
-                  </div>
-                </div>
-
-                <div class="bento-card-lavender-mentor">
-                  <div class="card-mentor-number">24/7</div>
-                  <div class="card-mentor-pill">
-                    1 to 1<br />with a personal teacher
-                  </div>
-                </div>
-
-              </div>
-
-              <!-- Right Column: Geometric Ribbon & Online Community Stack -->
-              <div class="bento-card-community">
-                <div class="community-ribbon-graphic" aria-hidden="true">
-                  <svg viewBox="0 0 160 70" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0 10 L80 26 L160 6 L160 22 L80 42 L0 26 Z" fill="#FFFFFF" fill-opacity="0.9" />
-                    <path d="M0 34 L80 50 L160 30 L160 46 L80 66 L0 50 Z" fill="#FFFFFF" fill-opacity="0.6" />
-                    <path d="M0 58 L80 72 L160 54 L160 68 L80 82 L0 68 Z" fill="#FFFFFF" fill-opacity="0.3" />
-                  </svg>
-                </div>
-
-                <div class="community-info">
-                  <div class="community-avatar-stack">
-                    <img 
-                      src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&auto=format&fit=crop&q=80" 
-                      alt="Student Gopika" 
-                      class="comm-avatar-img" 
-                    />
-                    <img 
-                      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80" 
-                      alt="Student Aditya" 
-                      class="comm-avatar-img" 
-                    />
-                    <img 
-                      src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80" 
-                      alt="Student Rohit" 
-                      class="comm-avatar-img" 
-                    />
-                  </div>
-                  <div class="community-subtext">
-                    join us online
-                  </div>
-                </div>
+              <!-- Character (Poster Fallback) -->
+              <div class="hero-character-wrap" id="hero-illus">
+                <canvas id="interactiveCanvas"></canvas>
+                <img src="image.png" alt="Friendly Tutor" class="character-poster" id="characterPoster" />
+                <div class="character-shadow"></div>
               </div>
 
             </div>
@@ -189,9 +145,7 @@
           </div>
 
         </div>
-
-      </div>
-    </section>
+      </section>
     </div>
 
     <!-- SECTION 2: SUBTLE ACCREDITATION / PARTNER MARQUEE (Matching Reference) -->
@@ -214,17 +168,20 @@
     <section class="section section-relative bg-ambient-glow" id="about">
       <div class="container">
         <div class="editorial-grid">
-          
+
           <!-- 3 Vertical Cards with High-Aesthetic Photography -->
           <div class="editorial-photos-row">
             <div class="editorial-card reveal-up">
-              <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&auto=format&fit=crop&q=80" alt="Classroom Discussion" loading="lazy" />
+              <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=600&auto=format&fit=crop&q=80"
+                alt="Classroom Discussion" loading="lazy" />
             </div>
             <div class="editorial-card" style="margin-top: 24px;">
-              <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=600&auto=format&fit=crop&q=80" alt="Science Laboratory" loading="lazy" />
+              <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=600&auto=format&fit=crop&q=80"
+                alt="Science Laboratory" loading="lazy" />
             </div>
             <div class="editorial-card reveal-up">
-              <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&auto=format&fit=crop&q=80" alt="Focused Study" loading="lazy" />
+              <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&auto=format&fit=crop&q=80"
+                alt="Focused Study" loading="lazy" />
             </div>
           </div>
 
@@ -234,7 +191,9 @@
               Crafting Meaningful Foundations & Intuitive Learning That Stands Out
             </h2>
             <p class="editorial-body">
-              We believe academic brilliance doesn't come from mechanical question cramming. With a concept-first pedagogical approach and an eye for fundamental principles, we help Kerala State and CBSE students connect with their subjects deeply and conquer board examinations fearlessly.
+              We believe academic brilliance doesn't come from mechanical question cramming. With a concept-first
+              pedagogical approach and an eye for fundamental principles, we help Kerala State and CBSE students connect
+              with their subjects deeply and conquer board examinations fearlessly.
             </p>
             <a href="courses.html" class="btn-pill-orange">
               <span>See our courses</span>
@@ -250,13 +209,14 @@
     <section class="section section-relative" id="solutions">
       <div class="container">
         <div class="numbered-solutions-section">
-          
+
           <div class="numbered-solutions-header">
             <h2 class="text-h2" style="margin-bottom: 16px;">
               Academic Solutions That Elevate Your Board Scores
             </h2>
             <p class="text-body" style="max-width: 440px;">
-              From syllabus foundation to final board revision, we provide structured, personalized guidance that helps students unlock their highest potential.
+              From syllabus foundation to final board revision, we provide structured, personalized guidance that helps
+              students unlock their highest potential.
             </p>
           </div>
 
@@ -266,7 +226,8 @@
               <div>
                 <h3 class="numbered-card-title">Concept Mastery & Strategy</h3>
                 <p class="numbered-card-desc">
-                  From first-principles theory to derivations and formula intuition, we replace memorization with rock-solid physical and mathematical mental models.
+                  From first-principles theory to derivations and formula intuition, we replace memorization with
+                  rock-solid physical and mathematical mental models.
                 </p>
               </div>
             </div>
@@ -276,7 +237,8 @@
               <div>
                 <h3 class="numbered-card-title">1-on-1 Individual Doubt Clearance</h3>
                 <p class="numbered-card-desc">
-                  Dedicated faculty hours before and after batches ensure every student's specific queries and conceptual bottlenecks are resolved promptly.
+                  Dedicated faculty hours before and after batches ensure every student's specific queries and
+                  conceptual bottlenecks are resolved promptly.
                 </p>
               </div>
             </div>
@@ -286,7 +248,8 @@
               <div>
                 <h3 class="numbered-card-title">Fast Integration & Board Mocks</h3>
                 <p class="numbered-card-desc">
-                  Continuous weekend tests based on the latest Kerala State SCERT and CBSE blueprints, with strict time management and step-by-step marking feedback.
+                  Continuous weekend tests based on the latest Kerala State SCERT and CBSE blueprints, with strict time
+                  management and step-by-step marking feedback.
                 </p>
               </div>
             </div>
@@ -300,13 +263,14 @@
     <section class="section-tight section-relative" id="results">
       <div class="container">
         <div class="results-metrics-section">
-          
+
           <div>
             <h2 class="text-h2" style="margin-bottom: 16px;">
               Teaching That Delivers Real Results
             </h2>
             <p class="text-body" style="max-width: 440px;">
-              From increased board exam percentages to verified full A+ rank holders, our work is backed by measurable student success year after year.
+              From increased board exam percentages to verified full A+ rank holders, our work is backed by measurable
+              student success year after year.
             </p>
           </div>
 
@@ -337,31 +301,37 @@
     <section class="arched-fan-section">
       <div class="container">
         <div class="arched-fan-stage">
-          
+
           <!-- Fan of 6 Subject Cards Curved in an Arc -->
           <div class="fan-cards-arc">
             <div class="fan-card">
-              <img src="https://images.unsplash.com/photo-1636466497217-26a8cbeaf0aa?w=400&auto=format&fit=crop&q=80" alt="Physics" />
+              <img src="https://images.unsplash.com/photo-1636466497217-26a8cbeaf0aa?w=400&auto=format&fit=crop&q=80"
+                alt="Physics" />
               <div class="fan-card-label">Physics</div>
             </div>
             <div class="fan-card">
-              <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?w=400&auto=format&fit=crop&q=80" alt="Mathematics" />
+              <img src="https://images.unsplash.com/photo-1509228468518-180dd4864904?w=400&auto=format&fit=crop&q=80"
+                alt="Mathematics" />
               <div class="fan-card-label">Maths</div>
             </div>
             <div class="fan-card">
-              <img src="https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?w=400&auto=format&fit=crop&q=80" alt="Chemistry" />
+              <img src="https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?w=400&auto=format&fit=crop&q=80"
+                alt="Chemistry" />
               <div class="fan-card-label">Chemistry</div>
             </div>
             <div class="fan-card">
-              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&auto=format&fit=crop&q=80" alt="Accountancy" />
+              <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&auto=format&fit=crop&q=80"
+                alt="Accountancy" />
               <div class="fan-card-label">Accounts</div>
             </div>
             <div class="fan-card">
-              <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=400&auto=format&fit=crop&q=80" alt="Biology" />
+              <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=400&auto=format&fit=crop&q=80"
+                alt="Biology" />
               <div class="fan-card-label">Biology</div>
             </div>
             <div class="fan-card">
-              <img src="https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?w=400&auto=format&fit=crop&q=80" alt="Live Studio" />
+              <img src="https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?w=400&auto=format&fit=crop&q=80"
+                alt="Live Studio" />
               <div class="fan-card-label">Online Live</div>
             </div>
           </div>
@@ -370,7 +340,8 @@
           <div class="fan-center-content">
             <h2 class="fan-center-title">Let's Create Something Exceptional</h2>
             <p class="fan-center-desc">
-              Join Kerala's top academic faculty in Kochi or live online from home. Experience 2 days of real classes with our master educators.
+              Join Kerala's top academic faculty in Kochi or live online from home. Experience 2 days of real classes
+              with our master educators.
             </p>
             <button class="btn-pill-orange" data-open-demo-modal>
               <span>Get in touch</span>
@@ -385,29 +356,40 @@
     <!-- SECTION 7: TESTIMONIALS WITH FLOATING GALLERY -->
     <section class="floating-gallery-section">
       <div class="container" style="display: flex; flex-direction: column; align-items: center;">
-        
+
         <!-- Floating Masonry Grid -->
         <div class="floating-gallery-grid">
           <div class="gallery-col">
-            <div class="gallery-img-card"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&q=80" alt="Students" /></div>
-            <div class="gallery-img-card"><img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=400&q=80" alt="Classroom" /></div>
+            <div class="gallery-img-card"><img
+                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&q=80" alt="Students" /></div>
+            <div class="gallery-img-card"><img
+                src="https://images.unsplash.com/photo-1543269865-cbf427effbad?w=400&q=80" alt="Classroom" /></div>
           </div>
           <div class="gallery-col">
-            <div class="gallery-img-card"><img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=400&q=80" alt="Learning" /></div>
-            <div class="gallery-img-card"><img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=400&q=80" alt="Teacher" /></div>
-            <div class="gallery-img-card"><img src="https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?w=400&q=80" alt="Online" /></div>
+            <div class="gallery-img-card"><img
+                src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?w=400&q=80" alt="Learning" /></div>
+            <div class="gallery-img-card"><img
+                src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=400&q=80" alt="Teacher" /></div>
+            <div class="gallery-img-card"><img
+                src="https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?w=400&q=80" alt="Online" /></div>
           </div>
           <div class="gallery-col col-wide">
-            <div class="gallery-img-card"><img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=500&q=80" alt="Lecture" /></div>
-            <div class="gallery-img-card"><img src="https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?w=500&q=80" alt="Study" /></div>
+            <div class="gallery-img-card"><img
+                src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=500&q=80" alt="Lecture" /></div>
+            <div class="gallery-img-card"><img
+                src="https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?w=500&q=80" alt="Study" /></div>
           </div>
           <div class="gallery-col">
-            <div class="gallery-img-card"><img src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=400&q=80" alt="Graduation" /></div>
-            <div class="gallery-img-card"><img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400&q=80" alt="Friends" /></div>
+            <div class="gallery-img-card"><img
+                src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=400&q=80" alt="Graduation" /></div>
+            <div class="gallery-img-card"><img
+                src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=400&q=80" alt="Friends" /></div>
           </div>
           <div class="gallery-col">
-            <div class="gallery-img-card"><img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?w=400&q=80" alt="Library" /></div>
-            <div class="gallery-img-card"><img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400&q=80" alt="Writing" /></div>
+            <div class="gallery-img-card"><img
+                src="https://images.unsplash.com/photo-1577896851231-70ef18881754?w=400&q=80" alt="Library" /></div>
+            <div class="gallery-img-card"><img
+                src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400&q=80" alt="Writing" /></div>
           </div>
         </div>
 
@@ -421,11 +403,13 @@
           <article class="ref-testimonial-card">
             <div class="stars-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
             <p class="ref-testimonial-text">
-              "Zenith completely changed my approach to Physics and Chemistry. Concepts that seemed impossible in school were broken down into simple logical steps."
+              "Zenith completely changed my approach to Physics and Chemistry. Concepts that seemed impossible in school
+              were broken down into simple logical steps."
             </p>
             <div class="ref-testimonial-author">
               <div class="ref-author-avatar">
-                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&auto=format&fit=crop&q=80" alt="Gopika S." />
+                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&auto=format&fit=crop&q=80"
+                  alt="Gopika S." />
               </div>
               <div>
                 <div class="ref-author-name">Gopika S. Nair</div>
@@ -437,11 +421,13 @@
           <article class="ref-testimonial-card">
             <div class="stars-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
             <p class="ref-testimonial-text">
-              "From daily concept drills to mock exams, Zenith's attention to detail and personal doubt clearance exceeded all our expectations as parents."
+              "From daily concept drills to mock exams, Zenith's attention to detail and personal doubt clearance
+              exceeded all our expectations as parents."
             </p>
             <div class="ref-testimonial-author">
               <div class="ref-author-avatar">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80" alt="Dr. Suresh" />
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80"
+                  alt="Dr. Suresh" />
               </div>
               <div>
                 <div class="ref-author-name">Dr. Suresh Varma</div>
@@ -453,11 +439,13 @@
           <article class="ref-testimonial-card">
             <div class="stars-rating">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
             <p class="ref-testimonial-text">
-              "Their online live batch is just as engaging as physical classes. The teacher answers doubts instantly and whiteboard notes are uploaded every day."
+              "Their online live batch is just as engaging as physical classes. The teacher answers doubts instantly and
+              whiteboard notes are uploaded every day."
             </p>
             <div class="ref-testimonial-author">
               <div class="ref-author-avatar">
-                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&auto=format&fit=crop&q=80" alt="Rohit K." />
+                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=100&auto=format&fit=crop&q=80"
+                  alt="Rohit K." />
               </div>
               <div>
                 <div class="ref-author-name">Rohit Krishnan</div>
@@ -473,7 +461,7 @@
     <!-- SECTION 8: CHOOSE YOUR PLAN / 3-TIER BATCHES (Center Card in Solid Orange!) -->
     <section class="section section-relative bg-ambient-glow" id="modes">
       <div class="container">
-        
+
         <div style="margin-bottom: 48px;">
           <h2 class="text-h2" style="margin-bottom: 10px;">Choose Your Learning Mode</h2>
           <p class="text-body" style="max-width: 580px;">
@@ -482,13 +470,13 @@
         </div>
 
         <div class="pricing-tiers-grid">
-          
+
           <!-- Card 1: Offline Campus Batch (Dark Card) -->
           <div class="plan-card reveal-up">
             <span class="plan-type-label">CAMPUS PROGRAM</span>
             <h3 class="plan-title-head">Offline Campus</h3>
             <p class="plan-subdesc">In-person classes at Kochi MG Road Campus</p>
-            
+
             <div class="plan-features-list">
               <div class="plan-feature-item">
                 <span class="plan-feature-bullet"></span>
@@ -520,10 +508,12 @@
 
           <!-- Card 2: HYBRID MASTERCLASS (THE SIGNATURE VIBRANT SOLID ORANGE CARD FROM REFERENCE!) -->
           <div class="plan-card plan-card-featured-orange reveal-up">
-            <span class="plan-type-label" style="background: rgba(0,0,0,0.25); display: inline-block; padding: 2px 10px; border-radius: var(--radius-pill); width: fit-content;">MOST POPULAR</span>
+            <span class="plan-type-label"
+              style="background: rgba(0,0,0,0.25); display: inline-block; padding: 2px 10px; border-radius: var(--radius-pill); width: fit-content;">MOST
+              POPULAR</span>
             <h3 class="plan-title-head">Hybrid Masterclass</h3>
             <p class="plan-subdesc">Best of both worlds: Physical classes + Digital Portal</p>
-            
+
             <div class="plan-features-list">
               <div class="plan-feature-item">
                 <span class="plan-feature-bullet"></span>
@@ -562,7 +552,7 @@
             <span class="plan-type-label">STATEWIDE & GULF</span>
             <h3 class="plan-title-head">Live Online Batch</h3>
             <p class="plan-subdesc">Interactive online classes from anywhere</p>
-            
+
             <div class="plan-features-list">
               <div class="plan-feature-item">
                 <span class="plan-feature-bullet"></span>
@@ -600,23 +590,22 @@
     <!-- SECTION 9: ATMOSPHERIC BOTTOM CTA BANNER ("Let's Bring Your Vision to Life") -->
     <section class="section-tight">
       <div class="container">
-        
+
         <div class="bottom-cta-banner-card">
-          <img 
-            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1000&auto=format&fit=crop&q=80" 
-            alt="Students Achievers" 
-            class="cta-banner-bg-img"
-          />
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1000&auto=format&fit=crop&q=80"
+            alt="Students Achievers" class="cta-banner-bg-img" />
           <h2 class="bottom-cta-title">Let's Bring Your Academic Vision to Life</h2>
           <p class="bottom-cta-desc">
-            Speak directly with our senior academic coordinators. Book a free 2-day trial class today and secure your seat in Kerala's top batch.
+            Speak directly with our senior academic coordinators. Book a free 2-day trial class today and secure your
+            seat in Kerala's top batch.
           </p>
           <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
             <button class="btn-pill-orange" data-open-demo-modal>
               <span>Book Your Free Demo Today</span>
               <span class="arrow-icon">&rarr;</span>
             </button>
-            <a href="https://wa.me/919847012345?text=Hello%20Zenith%20Academy,%20I%20am%20enquiring%20about%20admissions." target="_blank" class="btn-pill-whatsapp">
+            <a href="https://wa.me/919847012345?text=Hello%20Zenith%20Academy,%20I%20am%20enquiring%20about%20admissions."
+              target="_blank" class="btn-pill-whatsapp">
               WhatsApp Admissions
             </a>
           </div>
@@ -630,11 +619,12 @@
   <!-- SECTION 10: MINIMAL MULTI-COLUMN FOOTER (Matching Reference) -->
   <footer class="minimal-footer">
     <div class="container">
-      
+
       <div class="footer-reference-grid">
         <div>
           <div class="footer-brand-title">
-            <img src="logo.svg" alt="Ananthu's PCM" style="height: 48px; width: auto; margin-bottom: 12px; display: block;" />
+            <img src="logo.svg" alt="Ananthu's PCM"
+              style="height: 48px; width: auto; margin-bottom: 12px; display: block;" />
             <span style="color: var(--color-brand-primary);">●</span> Ananthu's PCM
           </div>
           <p class="footer-bio-desc">
@@ -671,7 +661,7 @@
           <h4 class="footer-column-heading">Connect</h4>
           <div class="footer-nav-links">
             <a href="https://wa.me/919847012345" target="_blank">WhatsApp Chat ↗</a>
-            <a href="tel:+919847012345">+91 98470 12345</a>
+            <a href="tel:+919847012345">+91 6282296414</a>
             <a href="videos.html">YouTube Lessons</a>
             <a href="contact.html">Campus Location</a>
             <a href="contact.html">Enquiry Desk</a>
@@ -695,7 +685,7 @@
   <div class="site-modal" id="demoModal" role="dialog" aria-modal="true" aria-labelledby="demoModalTitle">
     <div class="modal-dialog">
       <button class="modal-close-btn" data-close-modal aria-label="Close modal">&times;</button>
-      
+
       <div style="margin-bottom: 24px;">
         <span class="status-pill" style="margin-bottom: 12px; font-size: 0.78rem;">
           <span class="status-dot"></span> Free 2-Day Trial Pass
@@ -759,10 +749,16 @@
   </div>
 
   <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/three@0.134.0/examples/js/loaders/GLTFLoader.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script src="js/data.js"></script>
+  <script src="js/canvas-bg.js"></script>
+  <script src="js/hero-3d-character.js"></script>
   <script src="js/main.js"></script>
   <script src="js/forms.js"></script>
-  
+
   <script>
     // Floating Pill Scroll Reaction
     window.addEventListener('scroll', () => {
@@ -777,4 +773,5 @@
     }, { passive: true });
   </script>
 </body>
+
 </html>

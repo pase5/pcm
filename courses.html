@@ -65,45 +65,46 @@
     </div>
   </aside>
 
-  <!-- Page Banner -->
-  <section class="section-tight" style="background: linear-gradient(180deg, #171816, var(--color-canvas)); border-bottom: 1px solid var(--color-border-dark);">
-    <div class="container text-center">
-      <div class="eyebrow">Academic Catalogue 2025–2026</div>
-      <h1 class="text-h1" style="margin-bottom: 16px;">Search & Discover Courses</h1>
-      <p class="section-subtitle" style="max-width: 650px; margin-inline: auto;">
+  <!-- Page Banner with Parallax Sticky Wrapper -->
+  <div class="parallax-stack-wrapper">
+  <section class="courses-hero-banner parallax-section-sticky bg-ambient-glow">
+    <div class="container text-center" style="position: relative; z-index: 2;">
+      <div class="eyebrow reveal-up">Academic Catalogue 2025–2026</div>
+      <h1 class="text-h1 reveal-up delay-100" style="margin-bottom: 16px;">Search & Discover Courses</h1>
+      <p class="section-subtitle reveal-up delay-200" style="max-width: 650px; margin-inline: auto;">
         Find the exact board, class, stream, and subject combination tailored to help your child achieve top grades.
       </p>
 
-      <!-- Course Search Input Bar -->
-      <div style="max-width: 580px; margin: 32px auto 0; position: relative;">
+      <!-- Premium Course Search Input Bar -->
+      <div class="reveal-up delay-300" style="max-width: 580px; margin: 32px auto 0; position: relative;">
         <input 
           type="text" 
           id="courseSearchInput" 
-          class="form-control" 
-          placeholder="🔍 Search by subject (e.g. Physics, Accountancy, Maths) or course..." 
-          style="padding: 14px 20px; font-size: 1.05rem; border-radius: var(--radius-pill); background: #FFFFFF; color: #121310; box-shadow: 0 8px 24px rgba(0,0,0,0.3);"
+          class="search-input-premium" 
+          placeholder="🔍 Search by subject (e.g. Physics, Maths) or course..." 
         />
       </div>
     </div>
   </section>
+  </div>
 
   <!-- Main Catalogue Content -->
-  <main class="section">
+  <main class="section section-relative">
     <div class="container">
       
       <!-- Filter Bar Controls -->
-      <div class="board-class-tabs" style="margin-bottom: 24px;">
-        <div class="board-switch">
-          <button class="board-tab-btn active" data-board-filter="all">All Boards</button>
-          <button class="board-tab-btn" data-board-filter="kerala">Kerala State Syllabus</button>
-          <button class="board-tab-btn" data-board-filter="cbse">CBSE Curriculum</button>
+      <div style="margin-bottom: 32px; display: flex; flex-direction: column; gap: 16px; align-items: flex-start;">
+        <div class="filter-toggle-group">
+          <button class="filter-toggle-btn active" data-board-filter="all">All Boards</button>
+          <button class="filter-toggle-btn" data-board-filter="kerala">Kerala State Syllabus</button>
+          <button class="filter-toggle-btn" data-board-filter="cbse">CBSE Curriculum</button>
         </div>
 
-        <div class="class-filters-row">
-          <button class="class-filter-pill active" data-class-filter="all">All Classes</button>
-          <button class="class-filter-pill" data-class-filter="8-10">Classes 8–10 (SSLC/CBSE)</button>
-          <button class="class-filter-pill" data-class-filter="11">Plus One / Class 11</button>
-          <button class="class-filter-pill" data-class-filter="12">Plus Two / Class 12</button>
+        <div class="filter-toggle-group">
+          <button class="filter-toggle-btn active" data-class-filter="all">All Classes</button>
+          <button class="filter-toggle-btn" data-class-filter="8-10">Classes 8–10 (SSLC/CBSE)</button>
+          <button class="filter-toggle-btn" data-class-filter="11">Plus One / Class 11</button>
+          <button class="filter-toggle-btn" data-class-filter="12">Plus Two / Class 12</button>
         </div>
       </div>
 

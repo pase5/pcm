@@ -103,13 +103,15 @@ function initCourseFiltering() {
       return;
     }
 
-    container.innerHTML = filtered.map(course => {
+    container.innerHTML = filtered.map((course, index) => {
       const isKerala = course.board === 'kerala';
       const boardLabel = course.board === 'both' ? 'Kerala & CBSE' : isKerala ? 'Kerala State' : 'CBSE';
       const boardClass = isKerala ? 'board-kerala' : 'board-cbse';
+      
+      const delayClass = `delay-${Math.min((index % 4 + 1) * 100, 400)}`;
 
       return `
-        <article class="course-card" data-course-id="${course.id}">
+        <article class="course-card-premium reveal-up ${delayClass}" data-course-id="${course.id}">
           <div class="course-badge-row">
             <span class="badge-tag ${boardClass}">${boardLabel} • Class ${course.classLevel}</span>
             <span class="badge-tag mode-pill">${course.mode}</span>
@@ -124,13 +126,18 @@ function initCourseFiltering() {
           <div class="course-footer">
             <span class="batch-status">${course.batchStatus}</span>
             <div style="display: flex; gap: 8px;">
-              <button class="btn btn-secondary btn-sm view-course-detail-btn" data-id="${course.id}">Details</button>
-              <button class="btn btn-primary btn-sm open-demo-btn" data-course-title="${course.title}">Enquire</button>
+              <button class="btn-pill-outline view-course-detail-btn" data-id="${course.id}" style="padding: 8px 16px; font-size: 0.85rem;">Details</button>
+              <button class="btn-pill-orange open-demo-btn" data-course-title="${course.title}" style="padding: 8px 16px; font-size: 0.85rem;">Enquire &rarr;</button>
             </div>
           </div>
         </article>
       `;
     }).join('');
+
+    // Trigger reveal animations for the newly rendered cards
+    setTimeout(() => {
+      container.querySelectorAll('.reveal-up').forEach(el => el.classList.add('is-revealed'));
+    }, 50);
 
     // Attach click events
     container.querySelectorAll('.view-course-detail-btn').forEach(btn => {

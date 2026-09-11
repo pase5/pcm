@@ -4,6 +4,7 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  initPreloader();
   initHeader();
   initMobileDrawer();
   initMetricCounters();
@@ -11,6 +12,172 @@ document.addEventListener('DOMContentLoaded', () => {
   initFaqAccordion();
   initDemoModal();
 });
+
+/* --------------------------------------------------------------------------
+   0. Preloader & GSAP Init
+   -------------------------------------------------------------------------- */
+function initPreloader() {
+  const preloader = document.getElementById('preloader');
+  const progressText = document.getElementById('loader-progress');
+  const progressBar = document.getElementById('loader-progress-bar');
+  
+  if (!preloader) return;
+
+  if (typeof gsap === 'undefined') {
+    // Fallback if GSAP fails to load
+    setTimeout(() => {
+      preloader.classList.add('loaded');
+      setTimeout(() => preloader.style.display = 'none', 800);
+    }, 1000);
+    return;
+  }
+
+  // Simulate loading progress
+  let progress = { value: 0 };
+  gsap.to(progress, {
+    value: 100,
+    duration: 1.6,
+    ease: "power2.inOut",
+    onUpdate: () => {
+      const val = Math.round(progress.value);
+      if (progressText) progressText.innerText = val + '%';
+      if (progressBar) progressBar.style.width = val + '%';
+    },
+    onComplete: () => {
+      // Fade out preloader
+      gsap.to(preloader, {
+        opacity: 0,
+        duration: 0.6,
+        ease: "power2.out",
+        onComplete: () => {
+          preloader.classList.add('loaded');
+          preloader.style.display = 'none';
+          initGsapHeroAnimations();
+          initHero3DTilt();
+        }
+      });
+    }
+  });
+}
+
+function initGsapHeroAnimations() {
+  if (typeof gsap === 'undefined') return;
+  
+  const tl = gsap.timeline();
+  
+  // Animate Hero Elements (Fade up)
+  if (document.querySelector('.clean-hero-title')) {
+    tl.fromTo('.clean-hero-title', { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: 'power3.out' })
+      .fromTo('.clean-hero-desc', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' }, '-=0.6')
+      .fromTo('.clean-hero-cta-group', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' }, '-=0.6')
+      .fromTo('.clean-hero-trust', { opacity: 0 }, { opacity: 1, duration: 1 }, '-=0.4');
+  }
+  
+  // Right side staggering
+  if (document.querySelector('.bento-student-img')) {
+    tl.fromTo('.bento-illustration-wrap', { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: 'power3.out' }, '-=1')
+      .fromTo('#hero-card-lime', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out' }, '-=0.6')
+      .fromTo('#hero-card-lavender', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out' }, '-=0.4')
+      .fromTo('#hero-card-tall', { y: 20, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: 'power2.out' }, '-=0.4');
+      
+    // Chat bubbles stagger
+    tl.fromTo('.chat-bubble.bubble-lime', { scale: 0.9, opacity: 0, transformOrigin: 'bottom right' }, { scale: 1, opacity: 1, duration: 0.4, ease: 'back.out(1.5)' }, '-=0.2')
+      .fromTo('.chat-bubble.bubble-white', { scale: 0.9, opacity: 0, transformOrigin: 'bottom left' }, { scale: 1, opacity: 1, duration: 0.4, ease: 'back.out(1.5)', delay: 0.4 });
+  }
+  
+  // Navbar 
+  if (document.querySelector('.floating-pill-nav')) {
+    gsap.fromTo('.floating-header-wrapper', { y: -50, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: 'power3.out' }, '-=1.5');
+  }
+
+  // Scroll Parallax (ScrollTrigger)
+  if (typeof ScrollTrigger !== 'undefined') {
+    gsap.registerPlugin(ScrollTrigger);
+    
+    if (document.querySelector('.clean-hero-text-col')) {
+      gsap.to('.clean-hero-text-col', {
+        y: -40, opacity: 0.2,
+        scrollTrigger: { trigger: '.clean-hero-backdrop-wrapper', start: 'top top', end: 'bottom center', scrub: true }
+      });
+      
+      gsap.to('#hero-illus', {
+        y: -20,
+        scrollTrigger: { trigger: '.clean-hero-backdrop-wrapper', start: 'top top', end: 'bottom top', scrub: true }
+      });
+      
+      gsap.to('#hero-chat', {
+        y: -70,
+        scrollTrigger: { trigger: '.clean-hero-backdrop-wrapper', start: 'top top', end: 'bottom top', scrub: true }
+      });
+      
+      gsap.to('#hero-card-lime', {
+        y: -35,
+        scrollTrigger: { trigger: '.clean-hero-backdrop-wrapper', start: 'top top', end: 'bottom top', scrub: true }
+      });
+
+      gsap.to('#hero-card-tall', {
+        y: -90,
+        scrollTrigger: { trigger: '.clean-hero-backdrop-wrapper', start: 'top top', end: 'bottom top', scrub: true }
+      });
+    }
+  }
+}
+
+function initHero3DTilt() {
+  const stage = document.getElementById('heroInteractiveStage');
+  if (!stage) return;
+  
+  const cards = document.querySelectorAll('.hero-interactive-card');
+  if (cards.length === 0) return;
+
+  stage.addEventListener('mousemove', (e) => {
+    // Check if reduced motion is preferred or mobile screen
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches || window.innerWidth < 768) return;
+
+    const rect = stage.getBoundingClientRect();
+    const x = e.clientX - rect.left; // x position within the element
+    const y = e.clientY - rect.top;  // y position within the element
+    
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    
+    const percentX = (x - centerX) / centerX; // -1 to 1
+    const percentY = (y - centerY) / centerY; // -1 to 1
+
+    cards.forEach(card => {
+      const speed = parseFloat(card.getAttribute('data-speed')) || 1;
+      
+      // Calculate subtle translations and rotations
+      const translateX = percentX * speed * 3;
+      const translateY = percentY * speed * 3;
+      const rotateX = -percentY * speed * 0.5; // Up/down mouse rotates card around X
+      const rotateY = percentX * speed * 0.5;  // Left/right mouse rotates card around Y
+      
+      gsap.to(card, {
+        x: translateX,
+        y: translateY,
+        rotationX: rotateX,
+        rotationY: rotateY,
+        transformPerspective: 1000,
+        duration: 0.6,
+        ease: 'power2.out'
+      });
+    });
+  });
+
+  stage.addEventListener('mouseleave', () => {
+    cards.forEach(card => {
+      gsap.to(card, {
+        x: 0,
+        y: 0,
+        rotationX: 0,
+        rotationY: 0,
+        duration: 1,
+        ease: 'elastic.out(1, 0.5)'
+      });
+    });
+  });
+}
 
 /* --------------------------------------------------------------------------
    1. Header Scroll Behavior

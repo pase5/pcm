@@ -1452,21 +1452,142 @@
   margin-bottom: 4px;
 }
 .result-board {
-  font-size: 0.8rem;
-  color: var(--color-text-secondary);
-  margin-bottom: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 32px;
 }
-.result-score-highlight {
+
+/* ==========================================================================
+   Premium Result Profile Cards (Image-Driven Style)
+   ========================================================================== */
+.result-card-premium {
+  position: relative;
+  aspect-ratio: 3/4;
+  border-radius: 28px;
+  background: #111;
+  border: 1px solid var(--color-border-subtle);
+  transform: translateZ(0); /* For Safari rounded corners */
+  overflow: hidden;
+}
+
+.result-bg-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  inset: 0;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.result-card-premium:hover .result-bg-img {
+  transform: scale(1.05);
+}
+
+.result-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10, 10, 12, 0.95) 0%, rgba(10, 10, 12, 0.4) 40%, rgba(10, 10, 12, 0) 70%);
+  pointer-events: none;
+}
+
+.result-top-badge {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.95rem;
+  z-index: 2;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.result-info {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  padding-right: 120px; /* Don't overlap pill */
+}
+
+.result-name-new {
   font-family: var(--font-display);
-  font-size: 1.8rem;
-  font-weight: 800;
-  color: var(--color-brand-primary);
+  font-size: clamp(1.6rem, 2vw, 2rem);
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.result-achievement-new {
+  font-size: 0.95rem;
+  color: #fff;
+  line-height: 1.4;
   margin-bottom: 4px;
 }
-.result-achievement {
-  font-size: 0.82rem;
-  color: #FFFFFF;
-  font-weight: 600;
+
+.result-board-new {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+}
+
+.result-score-pill {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: var(--color-canvas); 
+  border-top-left-radius: 28px;
+  padding: 16px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  z-index: 3;
+}
+
+.score-value {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--color-brand-primary);
+  line-height: 1;
+}
+
+.score-year {
+  font-size: 0.75rem;
+  color: var(--color-text-secondary);
+  font-weight: 700;
+  margin-top: 4px;
+  letter-spacing: 0.5px;
+}
+
+/* Inverted corner illusion */
+.corner-curve-x {
+  position: absolute;
+  top: -24px;
+  right: 0;
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  border-bottom-right-radius: 28px;
+  box-shadow: 12px 12px 0 12px var(--color-canvas);
+  pointer-events: none;
+}
+
+.corner-curve-y {
+  position: absolute;
+  bottom: 0;
+  left: -24px;
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  border-bottom-right-radius: 28px;
+  box-shadow: 12px 12px 0 12px var(--color-canvas);
+  pointer-events: none;
 }
 .lightbox-modal {
   position: fixed;
@@ -2020,4 +2141,234 @@
 
 .testimonials-hero-title .highlight-text {
   color: var(--color-text-muted);
+}
+
+/* ==========================================================================
+   Results Page - Metrics Strip
+   ========================================================================== */
+.metrics-strip {
+  display: flex;
+  justify-content: center;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  background: var(--color-surface-card);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-xl);
+  padding: 32px;
+  box-shadow: var(--shadow-card);
+  text-align: center;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .metrics-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 480px) {
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.metric-number {
+  font-family: var(--font-display);
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--color-brand-primary);
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.metric-label {
+  font-size: 0.95rem;
+  color: var(--color-text-secondary);
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Results Page - Approach / Stories Grid
+   ========================================================================== */
+.approach-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.approach-card {
+  padding: 32px;
+  border-radius: var(--radius-xl);
+  border: 1px solid var(--color-border-subtle);
+  background: #171719 !important; /* Force dark background */
+}
+/* ==========================================================================
+   Hero Redesign (Implementation Plan)
+   ========================================================================== */
+
+.hero-container {
+  max-width: 1248px;
+  margin: 0 auto;
+  padding: 140px 48px 80px 48px;
+  position: relative;
+}
+@media (max-width: 768px) {
+  .hero-container {
+    padding: 120px 20px 60px 20px;
+  }
+}
+
+.highlight-accent::before {
+  content: '';
+  position: absolute;
+  bottom: 10%;
+  left: 0;
+  width: 100%;
+  height: 30%;
+  background-color: var(--color-lime);
+  z-index: -1;
+  transform-origin: left center;
+  transform: scaleX(0);
+  animation: highlightReveal 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.3s;
+}
+@keyframes highlightReveal {
+  to { transform: scaleX(1); }
+}
+
+.hero-experience-col {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  gap: 32px;
+  position: relative;
+  min-height: 480px;
+}
+
+@media (max-width: 991px) {
+  .hero-experience-col {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* Character Poster Fallback */
+.hero-character-wrap {
+  width: 220px;
+  height: auto;
+  position: relative;
+  z-index: 2;
+  perspective: 1000px;
+}
+.character-poster {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  transition: transform 0.2s ease-out;
+  transform-origin: bottom center;
+}
+.character-shadow {
+  width: 80%;
+  height: 20px;
+  background: radial-gradient(ellipse at center, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0) 70%);
+  position: absolute;
+  bottom: -10px;
+  left: 10%;
+  border-radius: 50%;
+}
+
+/* Hero Labels */
+.hero-labels {
+  margin-top: 16px;
+}
+.hero-label {
+  display: inline-block;
+  padding: 6px 12px;
+  background: #F2F3F7;
+  color: #686879;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid #E9E9EF;
+}
+
+
+/* ==========================================================================
+   Hero Layout Revision (No Cube, Larger Character)
+   ========================================================================== */
+.clean-hero-content-grid {
+  grid-template-columns: 55% 45%;
+  gap: 48px;
+  align-items: center;
+}
+
+.clean-hero-title {
+  font-size: clamp(2.5rem, 4vw, 3.75rem) !important;
+  line-height: 1.15;
+}
+
+.hero-experience-col {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: auto;
+}
+
+.hero-character-wrap {
+  width: 100%;
+  max-width: 460px;
+  height: auto;
+  position: relative;
+  z-index: 2;
+  perspective: 1000px;
+}
+
+.character-poster {
+  width: 100%;
+  height: auto;
+  max-height: 460px;
+  object-fit: contain;
+}
+
+.hero-character-wrap::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 70%;
+  height: 80%;
+  background: var(--color-lavender);
+  filter: blur(80px);
+  opacity: 0.45;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+#interactiveCanvas {
+  position: absolute;
+  top: -20%;
+  left: -20%;
+  width: 140%;
+  height: 140%;
+  z-index: -2;
+  pointer-events: none;
+  mask-image: radial-gradient(circle at center, black 40%, transparent 70%);
+  -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 70%);
+}
+
+@media (max-width: 991px) {
+  .clean-hero-content-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .hero-character-wrap {
+    max-width: 300px;
+  }
+  .character-poster {
+    max-height: 300px;
+  }
 }

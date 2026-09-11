@@ -66,7 +66,7 @@
   </aside>
 
   <!-- Page Banner -->
-  <section class="section-tight" style="background: linear-gradient(180deg, #171816, var(--color-canvas)); border-bottom: 1px solid var(--color-border-dark);">
+  <section class="section-tight" style="background: linear-gradient(180deg, var(--color-canvas-subtle), var(--color-canvas)); padding-top: 140px; border-bottom: 1px solid var(--color-border-subtle);">
     <div class="container text-center">
       <div class="eyebrow">Academic Achievements 2024–2025</div>
       <h1 class="text-h1" style="margin-bottom: 16px;">Board Exam Hall of Fame</h1>
@@ -119,32 +119,32 @@
         </div>
 
         <div class="approach-grid">
-          <div class="approach-card" style="background: var(--color-surface-dark); border-color: var(--color-border-dark);">
-            <div style="font-size: 0.82rem; color: var(--color-brand-primary); font-weight: 700; margin-bottom: 6px;">
+          <div class="approach-card">
+            <div style="font-size: 0.82rem; color: var(--color-lime); font-weight: 700; margin-bottom: 6px;">
               PLUS TWO SCIENCE
             </div>
             <h3 style="color: #FFF; font-size: 1.2rem; margin-bottom: 8px;">Arjun M. — Score Jump: 62% &rarr; 91%</h3>
-            <p style="color: var(--color-text-muted-dark); font-size: 0.92rem;">
+            <p style="color: var(--color-text-muted); font-size: 0.92rem;">
               "I joined Zenith after getting C+ grades in Class 11 Physics. The doubt-clearing sessions and formula drill tests transformed my confidence completely."
             </p>
           </div>
 
-          <div class="approach-card" style="background: var(--color-surface-dark); border-color: var(--color-border-dark);">
-            <div style="font-size: 0.82rem; color: var(--color-brand-primary); font-weight: 700; margin-bottom: 6px;">
+          <div class="approach-card">
+            <div style="font-size: 0.82rem; color: var(--color-lime); font-weight: 700; margin-bottom: 6px;">
               CBSE CLASS 10 MATHS
             </div>
             <h3 style="color: #FFF; font-size: 1.2rem; margin-bottom: 8px;">Meera Nair — Score Jump: 54% &rarr; 95%</h3>
-            <p style="color: var(--color-text-muted-dark); font-size: 0.92rem;">
+            <p style="color: var(--color-text-muted); font-size: 0.92rem;">
               "Ramesh Sir made geometry proofs feel like puzzles rather than threats. I ended up scoring 95/100 in Standard Mathematics."
             </p>
           </div>
 
-          <div class="approach-card" style="background: var(--color-surface-dark); border-color: var(--color-border-dark);">
-            <div style="font-size: 0.82rem; color: var(--color-brand-primary); font-weight: 700; margin-bottom: 6px;">
+          <div class="approach-card">
+            <div style="font-size: 0.82rem; color: var(--color-lime); font-weight: 700; margin-bottom: 6px;">
               PLUS TWO COMMERCE
             </div>
             <h3 style="color: #FFF; font-size: 1.2rem; margin-bottom: 8px;">Nikhil K. — Score Jump: 68% &rarr; 96%</h3>
-            <p style="color: var(--color-text-muted-dark); font-size: 0.92rem;">
+            <p style="color: var(--color-text-muted); font-size: 0.92rem;">
               "Accountancy balance sheets always failed to tally until Arun Sir taught us the underlying logic. Scored 100/100 in the final model!"
             </p>
           </div>
@@ -227,15 +227,27 @@
       const grid = document.getElementById('resultsGrid');
       if (grid && window.ACADEMY_DATA) {
         grid.innerHTML = window.ACADEMY_DATA.results.map(r => `
-          <div class="result-card">
-            <span class="result-badge">${r.percent}</span>
-            <div class="result-avatar">
-              <img src="${r.photo}" alt="${r.name}" loading="lazy" />
+          <div class="result-card-premium">
+            <img src="${r.photo}" alt="${r.name}" class="result-bg-img" loading="lazy" />
+            <div class="result-overlay"></div>
+            
+            <div class="result-top-badge">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"></path></svg>
+              ${r.percent}
             </div>
-            <h3 class="result-name">${r.name}</h3>
-            <div class="result-board">${r.board} • ${r.year}</div>
-            <div class="result-score-highlight">${r.score}</div>
-            <div class="result-achievement">${r.achievement}</div>
+            
+            <div class="result-info">
+              <h3 class="result-name-new">${r.name}</h3>
+              <div class="result-achievement-new">${r.achievement}</div>
+              <div class="result-board-new">${r.board}</div>
+            </div>
+            
+            <div class="result-score-pill">
+              <div class="score-value">${r.score}</div>
+              <div class="score-year">BATCH ${r.year}</div>
+              <div class="corner-curve-x"></div>
+              <div class="corner-curve-y"></div>
+            </div>
           </div>
         `).join('');
       }
