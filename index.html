@@ -18,21 +18,117 @@
 
 <body>
 
-  <!-- Preloader -->
-  <div id="preloader"
-    style="position: fixed; inset: 0; background-color: #FCFCFC; z-index: 9999; display: flex; align-items: center; justify-content: center; transition: opacity 0.6s ease-in-out, visibility 0.6s;">
-    <div class="loader-content"
-      style="display: flex; flex-direction: column; align-items: center; gap: 12px; width: 200px;">
-      <div style="font-family: 'Lexend', sans-serif; font-size: 3rem; font-weight: 700; color: #171719;">A</div>
-      <div style="width: 100%; height: 2px; background: rgba(0,0,0,0.1); border-radius: 2px; overflow: hidden;">
-        <div id="loader-progress-bar" style="width: 0%; height: 100%; background: #171719; transition: width 0.2s;">
+  <!-- Premium Preloader -->
+  <style>
+    @keyframes loader-pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.95); }
+    }
+    @keyframes loader-slide {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+    .premium-loader-wrapper {
+      position: fixed; inset: 0; background: var(--color-canvas); z-index: 99999; display: flex; align-items: center; justify-content: center; transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.8s;
+    }
+    .premium-loader-content {
+      display: flex; flex-direction: column; align-items: center; gap: 32px; width: 240px;
+    }
+    .premium-loader-logo {
+      height: 64px; animation: loader-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    .premium-loader-bar-bg {
+      width: 100%; height: 3px; background: rgba(0,0,0,0.05); border-radius: 4px; overflow: hidden; position: relative;
+    }
+    .premium-loader-bar-fill {
+      position: absolute; top: 0; left: 0; height: 100%; background: linear-gradient(90deg, var(--color-brand-primary), #A67CFF, var(--color-brand-primary)); background-size: 200% 100%; width: 0%; transition: width 0.3s ease-out; border-radius: 4px;
+    }
+    .premium-loader-bar-glow {
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent); animation: loader-slide 1.5s infinite;
+    }
+    .premium-loader-text {
+      font-family: var(--font-display); font-size: 0.85rem; font-weight: 600; color: var(--color-text-secondary); letter-spacing: 2px; text-transform: uppercase;
+    }
+  </style>
+  <div id="preloader" class="premium-loader-wrapper">
+    <canvas id="loader-particles" style="position: absolute; inset: 0; z-index: -1; width: 100%; height: 100%; pointer-events: none;"></canvas>
+    <div class="premium-loader-content">
+      <img src="logo.svg" alt="Ananthu's PCM" class="premium-loader-logo" />
+      <div style="width: 100%;">
+        <div class="premium-loader-bar-bg">
+          <div id="loader-progress-bar" class="premium-loader-bar-fill">
+            <div class="premium-loader-bar-glow"></div>
+          </div>
+        </div>
+        <div style="display: flex; justify-content: space-between; margin-top: 12px;">
+          <div class="premium-loader-text">Loading</div>
+          <div id="loader-progress" class="premium-loader-text" style="color: var(--color-text-primary);">0%</div>
         </div>
       </div>
-      <div id="loader-progress"
-        style="font-family: 'Lexend', sans-serif; font-size: 0.9rem; font-weight: 500; color: #737789; letter-spacing: 1px;">
-        0%</div>
     </div>
   </div>
+  <script>
+    (function() {
+      const canvas = document.getElementById('loader-particles');
+      const ctx = canvas.getContext('2d');
+      let width, height;
+      const dots = [];
+      
+      function resize() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      }
+      window.addEventListener('resize', resize);
+      resize();
+
+      for (let i = 0; i < 50; i++) {
+        dots.push({
+          x: Math.random() * width,
+          y: Math.random() * height,
+          vx: (Math.random() - 0.5) * 0.4,
+          vy: (Math.random() - 0.5) * 0.4,
+          radius: Math.random() * 2 + 1,
+          opacity: Math.random() * 0.4 + 0.1
+        });
+      }
+
+      let animationId;
+      function draw() {
+        ctx.clearRect(0, 0, width, height);
+        // Use lavender accent color for the dots
+        ctx.fillStyle = '#A67CFF'; 
+        
+        dots.forEach(dot => {
+          dot.x += dot.vx;
+          dot.y += dot.vy;
+          
+          if (dot.x < 0) dot.x = width;
+          if (dot.x > width) dot.x = 0;
+          if (dot.y < 0) dot.y = height;
+          if (dot.y > height) dot.y = 0;
+
+          ctx.beginPath();
+          ctx.arc(dot.x, dot.y, dot.radius, 0, Math.PI * 2);
+          ctx.globalAlpha = dot.opacity;
+          ctx.fill();
+        });
+        
+        animationId = requestAnimationFrame(draw);
+      }
+      draw();
+
+      const preloader = document.getElementById('preloader');
+      const observer = new MutationObserver((mutations) => {
+        mutations.forEach((mutation) => {
+          if (preloader.style.opacity === '0' || preloader.classList.contains('loaded')) {
+            cancelAnimationFrame(animationId);
+            observer.disconnect();
+          }
+        });
+      });
+      observer.observe(preloader, { attributes: true, attributeFilter: ['style', 'class'] });
+    })();
+  </script>
 
   <!-- Interactive Background Canvas moved to hero-illus -->
 
@@ -133,10 +229,11 @@
             <!-- Right Column: Character + Lesson -->
             <div class="hero-experience-col">
               
-              <!-- Character (Poster Fallback) -->
-              <div class="hero-character-wrap" id="hero-illus">
+              <!-- Character (Poster Fallback & 3D Integration) -->
+              <div class="hero-character-wrap" id="hero-illus" style="position: relative;">
                 <canvas id="interactiveCanvas"></canvas>
                 <img src="image.png" alt="Friendly Tutor" class="character-poster" id="characterPoster" />
+                <div id="character-3d-canvas" style="position: absolute; inset: 0; z-index: 3; pointer-events: none;"></div>
                 <div class="character-shadow"></div>
               </div>
 
@@ -749,13 +846,11 @@
   </div>
 
   <!-- Scripts -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/three@0.134.0/examples/js/loaders/GLTFLoader.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script src="js/data.js"></script>
   <script src="js/canvas-bg.js"></script>
-  <script src="js/hero-3d-character.js"></script>
+  <script type="module" src="js/hero-3d-character.js"></script>
   <script src="js/main.js"></script>
   <script src="js/forms.js"></script>
 
