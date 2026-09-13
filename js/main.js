@@ -1,5 +1,5 @@
 /**
- * Zenith Academy - Core Interactive Engine
+ * Ananthu's PCM - Core Interactive Engine
  * Navigation, Drawer, Counter Animations, Accordions, Testimonial Slider, Modals
  */
 
@@ -21,7 +21,13 @@ function initPreloader() {
   const progressText = document.getElementById('loader-progress');
   const progressBar = document.getElementById('loader-progress-bar');
   
-  if (!preloader) return;
+  if (!preloader) {
+    initGsapHeroAnimations();
+    initHero3DTilt();
+    initScrollReveals();
+    initSectionParallax();
+    return;
+  }
 
   if (typeof gsap === 'undefined') {
     // Fallback if GSAP fails to load
@@ -36,7 +42,7 @@ function initPreloader() {
   let progress = { value: 0 };
   gsap.to(progress, {
     value: 100,
-    duration: 1.6,
+    duration: 0.6,
     ease: "power2.inOut",
     onUpdate: () => {
       const val = Math.round(progress.value);
@@ -54,6 +60,8 @@ function initPreloader() {
           preloader.style.display = 'none';
           initGsapHeroAnimations();
           initHero3DTilt();
+          initScrollReveals();
+          initSectionParallax();
         }
       });
     }
@@ -158,9 +166,8 @@ function initHero3DTilt() {
         y: translateY,
         rotationX: rotateX,
         rotationY: rotateY,
-        transformPerspective: 1000,
-        duration: 0.6,
-        ease: 'power2.out'
+        ease: 'power2.out',
+        duration: 1
       });
     });
   });
@@ -172,10 +179,65 @@ function initHero3DTilt() {
         y: 0,
         rotationX: 0,
         rotationY: 0,
-        duration: 1,
-        ease: 'elastic.out(1, 0.5)'
+        ease: 'power3.out',
+        duration: 1.5
       });
     });
+  });
+}
+
+/* --------------------------------------------------------------------------
+   0.5 Scroll Reveals & Parallax
+   -------------------------------------------------------------------------- */
+function initScrollReveals() {
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+  gsap.registerPlugin(ScrollTrigger);
+  
+  // Reveal Up
+  gsap.utils.toArray('.reveal-up').forEach((elem) => {
+    // If it's already animated by the hero timeline, skip it
+    if (elem.closest('.clean-hero-backdrop-wrapper')) return;
+    
+    gsap.fromTo(elem, 
+      { y: 60, opacity: 0 }, 
+      { y: 0, opacity: 1, duration: 0.8, ease: "power3.out", scrollTrigger: {
+        trigger: elem,
+        start: "top 85%",
+        toggleActions: "play none none reverse"
+      }}
+    );
+  });
+
+  // Reveal Scale
+  gsap.utils.toArray('.reveal-scale').forEach((elem) => {
+    gsap.fromTo(elem, 
+      { scale: 0.9, opacity: 0 }, 
+      { scale: 1, opacity: 1, duration: 0.8, ease: "back.out(1.5)", scrollTrigger: {
+        trigger: elem,
+        start: "top 85%",
+        toggleActions: "play none none reverse"
+      }}
+    );
+  });
+}
+
+function initSectionParallax() {
+  if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.utils.toArray('[data-parallax]').forEach((elem) => {
+    const speed = parseFloat(elem.getAttribute('data-parallax')) || 0.2;
+    const yOffset = speed * 150; // pixels to move
+
+    gsap.fromTo(elem, 
+      { y: 0 }, 
+      { y: -yOffset, ease: "none", scrollTrigger: {
+        trigger: elem.parentElement || elem,
+        start: "top bottom",
+        end: "bottom top",
+        scrub: true
+      }}
+    );
   });
 }
 
@@ -401,9 +463,27 @@ function initDemoModal() {
 
   if (!modal) return;
 
-  const open = () => {
+  window.openDemoModal = (context = {}) => {
     modal.classList.add('active');
     document.body.style.overflow = 'hidden';
+    
+    // Apply context to form if provided
+    const form = modal.querySelector('form');
+    if (form) {
+      if (context.mode) {
+        const modeSelect = form.querySelector('[name="mode"]');
+        if (modeSelect) modeSelect.value = context.mode;
+      }
+      if (context.board) {
+        const boardSelect = form.querySelector('[name="board"]');
+        if (boardSelect) boardSelect.value = context.board;
+      }
+      if (context.classLevel) {
+        const classSelect = form.querySelector('[name="classLevel"]');
+        if (classSelect) classSelect.value = context.classLevel;
+      }
+    }
+    
     const firstInput = modal.querySelector('input');
     if (firstInput) firstInput.focus();
   };
@@ -415,7 +495,11 @@ function initDemoModal() {
 
   openButtons.forEach(btn => btn.addEventListener('click', (e) => {
     e.preventDefault();
-    open();
+    // Gather basic context from button attributes if they exist
+    const mode = btn.getAttribute('data-mode');
+    const board = btn.getAttribute('data-board');
+    const classLevel = btn.getAttribute('data-class');
+    window.openDemoModal({ mode, board, classLevel });
   }));
 
   closeButtons.forEach(btn => btn.addEventListener('click', close));

@@ -1,5 +1,5 @@
 /**
- * Zenith Academy - Pinterest-Style Masonry Photo Gallery & Accessible Lightbox
+ * Ananthu's PCM - Pinterest-Style Masonry Photo Gallery & Accessible Lightbox
  * Compliant with IMPLEMENTATION.md Section 15
  */
 

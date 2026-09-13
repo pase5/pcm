@@ -1,5 +1,5 @@
 /**
- * Zenith Academy - Core Structured Dataset
+ * Ananthu's PCM - Core Structured Dataset
  * Courses, Faculty, Results, Gallery, Videos, and FAQs
  * Built according to Content Models in IMPLEMENTATION.md
  */
@@ -9,8 +9,8 @@ const ACADEMY_DATA = {
     brandName: "Ananthu's PCM",
     tagline: "Kerala State & CBSE Physics, Chemistry & Maths Excellence",
     phone: "+91 98470 12345",
-    whatsapp: "919847012345",
-    email: "admissions@zenithacademy.edu.in",
+    whatsapp: "916282296414",
+    email: "info@ananthus-pcm.in",
     address: "MG Road, Ravipuram, Kochi, Kerala 682016",
     hours: "Mon - Sat: 8:00 AM - 8:00 PM | Sun: 9:00 AM - 1:00 PM",
     socialLinks: {
@@ -236,7 +236,7 @@ const ACADEMY_DATA = {
 
   testimonials: [
     {
-      quote: "Joining Zenith Academy in Plus One was the turning point of my academic life. Physics used to intimidate me, but Menon Sir's real-life demonstrations made it my highest scoring subject in the board exam.",
+      quote: "Joining Ananthu's PCM in Plus One was the turning point of my academic life. Physics used to intimidate me, but Menon Sir's real-life demonstrations made it my highest scoring subject in the board exam.",
       author: "Gopika S. Nair",
       role: "Student (Plus Two Science - 1200/1200)",
       year: "2025 Batch"

@@ -455,10 +455,10 @@
 }
 
 .hero-float-badge:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
   border-color: var(--color-brand-primary);
   background: rgba(26, 26, 26, 0.95);
-  box-shadow: var(--shadow-orange-glow);
+  box-shadow: var(--shadow-card-hover);
 }
 
 .hero-float-badge.float-left {
@@ -831,8 +831,9 @@
 }
 
 .ref-testimonial-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
   border-color: var(--color-border-orange);
+  box-shadow: var(--shadow-card-hover);
 }
 
 .stars-rating {
@@ -1842,8 +1843,29 @@
 
 .btn-clean-dark:hover {
   background-color: #2D2D32;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-clean-outline {
+  border: 1px solid var(--color-border-strong);
+  color: var(--color-clean-text-dark);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 0.92rem;
+  padding: 11px 24px;
+  border-radius: 10px;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.2, 0.8, 0.2, 1);
+  white-space: nowrap;
+}
+
+.btn-clean-outline:hover {
+  border-color: var(--color-text-primary);
+  background-color: var(--color-canvas-subtle);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: var(--shadow-sm);
 }
 
 .btn-clean-dark.btn-lg {

@@ -1,5 +1,5 @@
 /**
- * Zenith Academy - Forms & Lead Generation Engine
+ * Ananthu's PCM - Forms & Lead Generation Engine
  * Client-side validation, WhatsApp prefill generator, and enquiry submission
  * Aligned with IMPLEMENTATION.md Section 9 & 19
  */
@@ -88,7 +88,7 @@ function handleFormSubmit(form) {
 
   // Construct structured WhatsApp prefilled message
   const waMessage = 
-    `Hello Zenith Academy Admissions Desk,\n` +
+    `Hello Ananthu's PCM Admissions Desk,\n` +
     `I would like to book a Free Demo Class / Enquire about admission.\n\n` +
     `• Student: ${student}\n` +
     (parent ? `• Parent/Guardian: ${parent}\n` : '') +
@@ -100,7 +100,7 @@ function handleFormSubmit(form) {
     (notes ? `• Note: ${notes}\n` : '') +
     `\nPlease confirm the demo batch schedule.`;
 
-  const waUrl = `https://wa.me/919847012345?text=${encodeURIComponent(waMessage)}`;
+  const waUrl = `https://wa.me/916282296414?text=${encodeURIComponent(waMessage)}`;
 
   // Show Success Feedback
   const submitBtn = form.querySelector('button[type="submit"]');

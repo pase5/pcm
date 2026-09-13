@@ -1,5 +1,5 @@
 /**
- * Zenith Academy - Course Catalogue & Dynamic Filtering Engine
+ * Ananthu's PCM - Course Catalogue & Dynamic Filtering Engine
  * Supports Board switcher, Class level filters, Search, and Course Detail Modal
  */
 
@@ -265,7 +265,7 @@ function openCourseDetailModal(courseId) {
       <button class="btn btn-primary btn-block" onclick="document.getElementById('courseDetailModal').classList.remove('active'); document.getElementById('demoModal').classList.add('active');">
         Enrol / Book Free Demo
       </button>
-      <a href="https://wa.me/919847012345?text=Hello%20Zenith%20Academy,%20I%20am%20interested%20in%20${encodeURIComponent(course.title)}" target="_blank" class="btn btn-whatsapp" style="padding-inline: 18px;">
+      <a href="https://wa.me/916282296414?text=Hello%20Zenith%20Academy,%20I%20am%20interested%20in%20${encodeURIComponent(course.title)}" target="_blank" class="btn btn-whatsapp" style="padding-inline: 18px;">
         WhatsApp
       </a>
     </div>
