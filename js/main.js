@@ -231,6 +231,7 @@ function initMobileDrawer() {
   const openDrawer = () => {
     drawer.classList.add('open');
     backdrop.classList.add('open');
+    toggleButtons.forEach(btn => btn.classList.add('active'));
     document.body.style.overflow = 'hidden';
     if (closeBtn) closeBtn.focus();
   };
@@ -238,6 +239,7 @@ function initMobileDrawer() {
   const closeDrawer = () => {
     drawer.classList.remove('open');
     backdrop.classList.remove('open');
+    toggleButtons.forEach(btn => btn.classList.remove('active'));
     document.body.style.overflow = '';
     if (toggleButtons[0]) toggleButtons[0].focus();
   };

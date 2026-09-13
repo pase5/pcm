@@ -4,7 +4,7 @@
  */
 document.addEventListener('DOMContentLoaded', () => {
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (prefersReducedMotion || window.innerWidth < 768) return;
+  if (prefersReducedMotion) return;
 
   const canvas = document.getElementById('interactiveCanvas');
   const container = document.getElementById('hero-illus');
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const returnStrength = 0.08;
 
   let mouse = { x: -1000, y: -1000 };
-  let bounds = container.getBoundingClientRect();
+  let bounds;
 
   function init() {
     bounds = container.getBoundingClientRect();
@@ -78,6 +78,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   container.addEventListener('pointermove', (e) => {
+    // Recalculate bounds on move in case of scroll
+    bounds = container.getBoundingClientRect();
     // Canvas is larger than container and offset by -25%
     mouse.x = e.clientX - bounds.left + (width * 0.16); 
     mouse.y = e.clientY - bounds.top + (height * 0.16);
@@ -89,7 +91,16 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   window.addEventListener('resize', () => { init(); }, { passive: true });
+  window.addEventListener('scroll', () => {
+    // Optionally move mouse away on scroll so dots reset
+    mouse.x = -1000;
+    mouse.y = -1000;
+  }, { passive: true });
 
+  // Ensure init is called after all CSS is applied and images loaded
+  window.addEventListener('load', () => {
+    init();
+  });
   init();
   animate();
 });
